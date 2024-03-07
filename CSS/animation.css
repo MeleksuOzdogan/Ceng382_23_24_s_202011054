@@ -1,0 +1,35 @@
+#loginbtn:hover{
+    background-color: rgb(1, 209, 1);
+    color: black;
+}
+
+tr:hover{
+    background-color: green;
+}
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes highlighted {
+    0%{background-color :#ffff; }
+    50%{background-color: green;}
+    100%{background-color: #ffff;}
+}
+
+.container {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation: slideInLeft 0.5s ease-in-out;
+}
+
+tbody{
+    animation: highlighted 1s ease-in-out;
+}
