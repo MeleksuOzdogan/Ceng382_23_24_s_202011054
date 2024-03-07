@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
     <title>Login Page</title>
 </head>
 <body>
-    Username:<br>
-    <input type="text" required><br>
-    Password:<br>
-    <input type="password" required><br><br>
-    <input type="submit"  value="Login">   
+    <div class="container">
+        <h2>Login</h2><br>
+        <form>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input id="loginbtn" type="submit" value="Login"> 
+        </form>
+    </div>
 </body>
 </html>
