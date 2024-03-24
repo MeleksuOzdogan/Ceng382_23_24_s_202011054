@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\RazorPagesProject.csproj": {}
+    "C:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\RazorPagesProject.csproj": {}
   },
   "projects": {
-    "c:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\RazorPagesProject.csproj": {
+    "C:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\RazorPagesProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\RazorPagesProject.csproj",
+        "projectUniqueName": "C:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\RazorPagesProject.csproj",
         "projectName": "RazorPagesProject",
-        "projectPath": "c:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\RazorPagesProject.csproj",
+        "projectPath": "C:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\RazorPagesProject.csproj",
         "packagesPath": "C:\\Users\\mlksu\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\obj\\",
+        "outputPath": "C:\\Users\\mlksu\\Desktop\\lab382\\Ceng382_23_24_s_202011054\\RazorPagesProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

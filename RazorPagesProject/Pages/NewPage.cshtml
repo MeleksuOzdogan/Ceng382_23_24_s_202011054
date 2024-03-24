@@ -1,12 +1,10 @@
 ﻿@page
 @model MyApp.Namespace.NewPageModel
-@{
-}
 
-<main class="form-signin w-100 m-auto">
-  <form>
+<main class="form-signin w-100 m-auto ">
+    
+  <form id="sign-in-entery">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
     <div class="form-floating">
       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
@@ -23,6 +21,32 @@
       </label>
     </div>
     <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
   </form>
+
+  <form id="additional-form" style="display: none;">
+    <h1 class="h3 mb-3 fw-normal">Additional Form</h1>
+
+    <div class="form-floating">
+        <input type="number" class="form-control" id="firstNumber" placeholder="Enter First Number" step="any" required>
+        <label for="firstNumber">Enter First Number</label>
+    </div>
+    <div class="form-floating">
+        <input type="number" class="form-control" id="secondNumber" placeholder="Enter Second Number" step="any" required>
+        <label for="secondNumber">Enter Second Number</label>
+    </div>
+    <div style="height: 10px;"></div>
+
+    <input class="btn btn-primary w-100 py-2" type="button" value="Calculate Sum" onclick="calculateSum()">
+    
+    <div style="height: 10px;"></div>
+    <p id="result" style="display: none;"></p>
+  </form>
+  
+
+  <div style="height: 10px;"></div>
+  <button class="btn btn-primary w-100 py-2" type="button" onclick="hidingFunc()">Click me to toggle the Sign-in</button>
+  <div style="height: 10px;"></div>
+  <button class="btn btn-primary w-100 py-2" type="button" onclick="hidingForm()">Click me to toogle the Form</button>
+
 </main>
+
