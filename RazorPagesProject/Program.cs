@@ -1,25 +1,47 @@
-var builder = WebApplication.CreateBuilder(args);
+﻿using System;
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
-// Add services to the container.
-builder.Services.AddRazorPages();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+public class RoomData
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    [JsonPropertyName("Room")]
+    public Room[]? Rooms { get; set; }
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+public class Room
+{
+    [JsonPropertyName("roomId")]
+    public string? roomId { get; set; }
 
-app.UseRouting();
+    [JsonPropertyName("roomName")]
+    public string? roomName { get; set; }
 
-app.UseAuthorization();
+    [JsonPropertyName("capacity")]
+    public string? capacity { get; set; }
+}
 
-app.MapRazorPages();
+class Program
+{
+    static void Main(string[] args)
+    {
+        string jsonFilePath = "Data.json";
+        string jsonString = File.ReadAllText(jsonFilePath);
 
-app.Run();
+        var options = new JsonSerializerOptions()
+        {
+            NumberHandling = JsonNumberHandling.AllowReadingFromString |
+            JsonNumberHandling.WriteAsString
+        };
+
+        var roomData = JsonSerializer.Deserialize<RoomData>(jsonString, options);
+
+        if (roomData?.Rooms != null)
+        {
+            foreach (var room in roomData.Rooms)
+            {
+                Console.WriteLine($"Room ID: {room.roomId}, Name: {room.roomName}");
+            }
+        }
+    }
+}
