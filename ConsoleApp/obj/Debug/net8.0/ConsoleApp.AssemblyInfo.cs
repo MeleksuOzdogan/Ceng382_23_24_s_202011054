@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("RazorPagesProject")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ConsoleApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+395a1df42ad6c5d2d713972256c181603ace5763")]
-[assembly: System.Reflection.AssemblyProductAttribute("RazorPagesProject")]
-[assembly: System.Reflection.AssemblyTitleAttribute("RazorPagesProject")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d20e92a6d6a17b534cb12886d8647f5054be9f7")]
+[assembly: System.Reflection.AssemblyProductAttribute("ConsoleApp")]
+[assembly: System.Reflection.AssemblyTitleAttribute("ConsoleApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // MSBuild WriteCodeFragment sınıfı tarafından oluşturuldu.
