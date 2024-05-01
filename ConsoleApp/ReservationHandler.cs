@@ -2,7 +2,7 @@ using System;
 
 public class ReservationHandler
 {
-    private readonly Reservation[,] _reservations;
+    private readonly Reservation?[,] _reservations;
 
     public ReservationHandler()
     {
