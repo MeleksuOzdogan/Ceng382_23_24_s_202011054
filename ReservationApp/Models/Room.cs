@@ -1,7 +1,6 @@
-
-public record Room
-(
-    string RoomId,
-    string RoomName,
-    int Capacity
-)
+public class Room
+{
+    public required string RoomId { get; set; }
+    public string RoomName { get; set; }
+    public int Capacity { get; set; }
+}

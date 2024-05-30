@@ -16,7 +16,7 @@ namespace MyApp.Namespace
         public List<Room> Rooms { get; set; } = new List<Room>();
         public void OnGet()
         {
-            Rooms = (from item in DbContext.RoomTable 
+            Rooms = (from item in DbContext.Rooms 
                             select item).ToList();
         }
 
@@ -27,10 +27,10 @@ namespace MyApp.Namespace
                 return Page();
             }
             
-            var roomID = Room.FindFirstValue(ClaimTypes.NameIdentifier);
+            //var roomID = Room.FindFirstValue(ClaimTypes.NameIdentifier);
             
-            NewRoom.RoomId = roomID;
-            DbContext.RoomTable.Add(NewRoom);
+            //NewRoom.RoomId = RoomId;
+            DbContext.Rooms.Add(NewRoom);
             DbContext.SaveChanges();
             return RedirectToAction("Get");
         }
