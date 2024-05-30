@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using ReservationApp.Data;
 namespace ReservationApp.Pages;
 
 public class PrivacyModel : PageModel

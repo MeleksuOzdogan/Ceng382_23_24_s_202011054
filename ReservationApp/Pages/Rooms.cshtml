@@ -4,40 +4,36 @@
 @{
     ViewData["Title"] = "Rooms List";
 }
+
 <h1>Room List</h1>
 
 <form method="post">
-<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<div class="form-group">
-    <label asp-for="NewRoom.RoomId" class="control-label"></label>
-    <input asp-for="NewRoom.RoomId" class="form-control" />
-    <span asp-validation-for="NewRoom.RoomId" class="text-danger"></span>
-</div>
-<div class="form-group">
-    <label asp-for="NewRoom.RoomName" class="control-label"></label>
-    <input asp-for="NewRoom.RoomName" class="form-control" />
-    <span asp-validation-for="NewRoom.RoomName" class="text-danger"></span>
-</div>
-<div class="form-group">
-    <label asp-for="NewRoom.Capacity" class="control-label"></label>
-    <input asp-for="NewRoom.Capacity" class="form-control" />
-    <span asp-validation-for="NewRoom.Capacity" class="text-danger"></span>
-</div>
-<div class="form-group">
-    <input type="submit" value="Create" class="btn btn-primary" />
-</div>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="NewRoom.RoomId" class="control-label"></label>
+        <input asp-for="NewRoom.RoomId" class="form-control" />
+        <span asp-validation-for="NewRoom.RoomId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewRoom.RoomName" class="control-label"></label>
+        <input asp-for="NewRoom.RoomName" class="form-control" />
+        <span asp-validation-for="NewRoom.RoomName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewRoom.Capacity" class="control-label"></label>
+        <input asp-for="NewRoom.Capacity" class="form-control" />
+        <span asp-validation-for="NewRoom.Capacity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
 </form>
 
 
-@section Scripts {
-<partial name="_ValidationScriptsPartial" />
-}
-
+<h2>Room List</h2>
 
 <table class="table mt-5">
     <thead>
-        <h2><br></h2>
-        <h2>-- Challenge List --</h2>
         <tr>
             <th scope="col">Room Id</th>
             <th scope="col">Room Name</th>
@@ -46,18 +42,24 @@
         </tr>
     </thead>
     <tbody>
-    @foreach (var room in Model.Rooms)
-    {
-        <tr>
-            <td>@room.RoomId</td>
-            <td>@room.RoomName</td>
-            <td>@room.Capacity</td>
-            <td>
-                
-                        <button class="btn btn-danger">Delete</button>
-                
-            </td>
-        </tr>
-    }
+        @foreach (var room in Model.Rooms)
+        {
+            <tr>
+                <td>@room.RoomId</td>
+                <td>@room.RoomName</td>
+                <td>@room.Capacity</td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="roomId" value="@room.RoomId" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<a href="/ViewRooms">View Rooms</a>

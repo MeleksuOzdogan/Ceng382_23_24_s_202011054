@@ -1,0 +1,44 @@
+﻿@page
+@model MyApp.Namespace.ViewRoomsModel
+@{
+    ViewData["Title"] = "View Rooms";
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+<h1>View Rooms</h1>
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Room Id</th>
+            <th scope="col">Room Name</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model.Rooms)
+        {
+            <tr>
+                <td>@room.RoomId</td>
+                <td>@room.RoomName</td>
+                <td>@room.Capacity</td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="roomId" value="@room.RoomId" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<a href="/Rooms">Add New Room</a>
