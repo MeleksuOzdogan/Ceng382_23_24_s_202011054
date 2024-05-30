@@ -2,11 +2,11 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Identity;
 using ReservationApp.Data;
 
 namespace MyApp.Namespace
 {
+    [Authorize]
     public class RoomsModel : PageModel
     {
         private readonly ApplicationDbContext DbContext;
