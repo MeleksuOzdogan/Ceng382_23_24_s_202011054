@@ -12,8 +12,8 @@ using ReservationApp.Data;
 namespace ReservationApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240530172129_ReservationTableCreate")]
-    partial class ReservationTableCreate
+    [Migration("20240531104248_DbCreate")]
+    partial class DbCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -229,20 +229,24 @@ namespace ReservationApp.Data.Migrations
 
             modelBuilder.Entity("Reservation", b =>
                 {
-                    b.Property<string>("ReservationId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ReservationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("DateTime")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReservationId"));
+
+                    b.Property<DateTime>("EndDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ReserverName")
+                    b.Property<string>("ReserverId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoomId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)")
-                        .HasColumnName("RoomId");
+                    b.Property<int>("RoomId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDateTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("ReservationId");
 
@@ -253,8 +257,11 @@ namespace ReservationApp.Data.Migrations
 
             modelBuilder.Entity("Room", b =>
                 {
-                    b.Property<string>("RoomId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RoomId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomId"));
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");

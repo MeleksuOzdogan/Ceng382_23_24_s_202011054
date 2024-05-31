@@ -17,9 +17,9 @@ namespace MyApp.Namespace
         }
 
         [BindProperty]
-        public Room NewRoom { get; set; } = new Room(){ RoomId = "SomeUniqueValue" };
+        public Room NewRoom { get; set; } = default!;
 
-        public IList<Room> Rooms { get; set; } = new List<Room>();
+        public List<Room> Rooms { get; set; } = new List<Room>();
         public string Message { get; set; }
 
         public void OnGet()
@@ -39,9 +39,9 @@ namespace MyApp.Namespace
             return RedirectToPage("/ViewRooms");
         }
 
-        public IActionResult OnPostDelete(string roomId)
+        public IActionResult OnPostDelete(int id)
         {
-            var room = DbContext.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+            var room = DbContext.Rooms.FirstOrDefault(r => r.RoomId == id);
             if (room == null)
             {
                 return NotFound();
@@ -49,7 +49,7 @@ namespace MyApp.Namespace
 
             DbContext.Rooms.Remove(room);
             DbContext.SaveChanges();
-            return RedirectToPage("/ViewRooms");
+            return RedirectToAction("GET");
         }
     }
 }

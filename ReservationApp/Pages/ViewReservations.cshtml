@@ -1,0 +1,36 @@
+﻿@page
+@model MyApp.Namespace.ViewReservationsModel
+@{
+    ViewData["Title"] = "View Reservations";
+}
+
+<h1>View Reservations</h1>
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Reservation Id</th>
+            <th scope="col">Start Date and Time</th>
+            <th scope="col">End Date and Time</th>
+            <th scope="col">Room Name</th>
+            <th scope="col">Reserver Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model.Reservations)
+        {
+            <tr>
+                <td>@reservation.ReservationId</td>
+                <td>@reservation.StartDateTime</td>
+                <td>@reservation.EndDateTime</td>
+                <td>@reservation.Room.RoomName</td>
+                <td>@reservation.ReserverId</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<a href="/Reservations">Add New Reservations</a>

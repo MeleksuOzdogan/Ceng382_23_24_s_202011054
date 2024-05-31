@@ -17,9 +17,9 @@ namespace MyApp.Namespace
         {
             Rooms = DbContext.Rooms.ToList();
         }
-        public IActionResult OnPostDelete(string roomId)
+        public IActionResult OnPostDelete(int id)
         {
-            var room = DbContext.Rooms.FirstOrDefault(r => r.RoomId == roomId);
+            var room = DbContext.Rooms.FirstOrDefault(r => r.RoomId == id);
             if (room == null)
             {
                 return NotFound();

@@ -6,32 +6,35 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ReservationApp.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class ReservationTableCreate : Migration
+    public partial class DbCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_RoomTable",
-                table: "RoomTable");
-
-            migrationBuilder.RenameTable(
-                name: "RoomTable",
-                newName: "Rooms");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Rooms",
-                table: "Rooms",
-                column: "RoomId");
+            migrationBuilder.CreateTable(
+                name: "Rooms",
+                columns: table => new
+                {
+                    RoomId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoomName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rooms", x => x.RoomId);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Reservations",
                 columns: table => new
                 {
-                    ReservationId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ReserverName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RoomId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    ReservationId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StartDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ReserverId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RoomId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,18 +59,8 @@ namespace ReservationApp.Data.Migrations
             migrationBuilder.DropTable(
                 name: "Reservations");
 
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Rooms",
-                table: "Rooms");
-
-            migrationBuilder.RenameTable(
-                name: "Rooms",
-                newName: "RoomTable");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_RoomTable",
-                table: "RoomTable",
-                column: "RoomId");
+            migrationBuilder.DropTable(
+                name: "Rooms");
         }
     }
 }

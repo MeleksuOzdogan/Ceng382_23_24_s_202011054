@@ -66,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mlksu/Desktop/lab382/Ceng382_23_24_s_202011054/ReservationApp/Pages/Reservations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mlksu/Desktop/lab382/Ceng382_23_24_s_202011054/ReservationApp/Pages/Rooms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,6 +80,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mlksu/Desktop/lab382/Ceng382_23_24_s_202011054/ReservationApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mlksu/Desktop/lab382/Ceng382_23_24_s_202011054/ReservationApp/Pages/ViewReservations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld1Jlc2VydmF0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mlksu/Desktop/lab382/Ceng382_23_24_s_202011054/ReservationApp/Pages/ViewRooms.cshtml]
