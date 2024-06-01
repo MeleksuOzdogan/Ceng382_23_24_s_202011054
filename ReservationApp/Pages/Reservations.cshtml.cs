@@ -50,6 +50,15 @@ namespace MyApp.Namespace
             _context.Reservations.Add(NewReservation);
             await _context.SaveChangesAsync();
 
+            Log log = new(){
+                operation = "CREATE",
+                userName = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                reservationID = NewReservation.ReservationId,
+                operationDate = DateTime.Now
+            };
+            _context.Logs.Add(log);
+            await _context.SaveChangesAsync();
+
             return RedirectToAction("GET");
         }
 
@@ -62,6 +71,15 @@ namespace MyApp.Namespace
             }
 
             _context.Reservations.Remove(reservation);
+            await _context.SaveChangesAsync();
+
+            Log log = new(){
+                operation = "DELETE",
+                userName = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                reservationID = id,
+                operationDate = DateTime.Now
+            };
+            _context.Logs.Add(log);
             await _context.SaveChangesAsync();
 
             return RedirectToPage();

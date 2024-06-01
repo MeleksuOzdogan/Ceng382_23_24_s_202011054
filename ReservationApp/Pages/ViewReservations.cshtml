@@ -30,6 +30,61 @@
     </tbody>
 </table>
 
+@{
+    var today = DateTime.Today;
+    var startOfWeek = today.AddDays(-(int)today.DayOfWeek);
+    var endOfWeek = startOfWeek.AddDays(6);
+}
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Monday</th>
+            <th scope="col">Tuesday</th>
+            <th scope="col">Wednesday</th>
+            <th scope="col">Thursday</th>
+            <th scope="col">Friday</th>
+            <th scope="col">Saturday</th>
+            <th scope="col">Sunday</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var hour = 0; hour < 24; hour++)
+        {
+            <tr>
+                <td>@hour:00 - @hour:59</td>
+                @for (var day = 0; day < 7; day++)
+                {
+                    var reservation = Model.Reservations
+                        .FirstOrDefault(r =>
+                            r.StartDateTime.Date >= startOfWeek && r.StartDateTime.Date <= endOfWeek && 
+                            r.StartDateTime.DayOfWeek == (DayOfWeek)day && r.StartDateTime.Hour == hour);
+
+                    if (reservation != null)
+                    {
+                        <td>
+                            Room: @reservation.Room.RoomName<br />
+                            Time: @reservation.StartDateTime.TimeOfDay <br>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@reservation.ReservationId" class="d-inline">
+                                <button class="btn btn-danger btn-sm mt-1">
+                                    Delete
+                                </button>
+                            </form>
+                            <button class="btn btn-primary btn-sm mt-1">
+                                    Edit
+                                </button>
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
